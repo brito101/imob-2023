@@ -2,7 +2,8 @@
 
 ## Resources
 
-Basic user controller
+User controller
+Agency controller with brokers
 Visitors log
 
 ## Usage

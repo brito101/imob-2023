@@ -126,6 +126,12 @@ class UserController extends Controller
         }
     }
 
+    public function show(string $id)
+    {
+        CheckPermission::checkAuth('Listar Usuários');
+        return redirect()->route('admin.users.index');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

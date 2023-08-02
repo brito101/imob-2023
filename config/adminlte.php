@@ -264,6 +264,26 @@ return [
             ],
         ],
         [
+            'text'        => 'Agências',
+            'url'         => '#',
+            'icon'        => 'fas fa-fw fa-building mr-2',
+            'can'         => 'Acessar Agências',
+            'submenu' => [
+                [
+                    'text' => 'Listagem de Agências',
+                    'url'  => 'admin/agencies',
+                    'icon' => 'fas fa-fw fa-chevron-right',
+                    'can'  => 'Listar Agências',
+                ],
+                [
+                    'text' => 'Cadastro de Agências',
+                    'url'  => 'admin/agencies/create',
+                    'icon' => 'fas fa-fw fa-chevron-right',
+                    'can'  => 'Criar Agências',
+                ],
+            ],
+        ],
+        [
             'text'    => 'ACL',
             'icon'    => 'fas fa-fw fa-user-shield mr-2',
             'can'     => 'Acessar ACL',
@@ -504,6 +524,21 @@ return [
                     'type' => 'css',
                     'asset' => true,
                     'location' => 'vendor/summernote/summernote-bs4.min.css',
+                ],
+            ],
+        ],
+        'BootstrapSelect' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
                 ],
             ],
         ],

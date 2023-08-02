@@ -90,6 +90,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => new DateTime('now')
             ],
+            /** 15 */
             [
                 'name' => 'Editar Usuário',
                 'guard_name' => 'web',
@@ -102,6 +103,32 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'name' => 'Excluir Usuários',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            /** Agencies 18 to 22 */
+            [
+                'name' => 'Acessar Agências',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            [
+                'name' => 'Listar Agências',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            [
+                'name' => 'Criar Agências',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            [
+                'name' => 'Editar Agências',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            [
+                'name' => 'Excluir Agências',
                 'guard_name' => 'web',
                 'created_at' => new DateTime('now')
             ],

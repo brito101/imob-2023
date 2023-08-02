@@ -100,6 +100,12 @@ class RolesHasPermissionTableSeeder extends Seeder
                 'permission_id' => 15,
                 'role_id' => 2
             ],
+            /** Edit Profile user */
+            [
+                'permission_id' => 15,
+                'role_id' => 3
+            ],
+            /** end */
             [
                 'permission_id' => 16,
                 'role_id' => 1
@@ -114,6 +120,47 @@ class RolesHasPermissionTableSeeder extends Seeder
             ],
             [
                 'permission_id' => 17,
+                'role_id' => 2
+            ],
+            /** Agencies 18 to 22 (programmer and administrator)*/
+            [
+                'permission_id' => 18,
+                'role_id' => 1
+            ],
+            [
+                'permission_id' => 18,
+                'role_id' => 2
+            ],
+            [
+                'permission_id' => 19,
+                'role_id' => 1
+            ],
+            [
+                'permission_id' => 19,
+                'role_id' => 2
+            ],
+            [
+                'permission_id' => 20,
+                'role_id' => 1
+            ],
+            [
+                'permission_id' => 20,
+                'role_id' => 2
+            ],
+            [
+                'permission_id' => 21,
+                'role_id' => 1
+            ],
+            [
+                'permission_id' => 21,
+                'role_id' => 2
+            ],
+            [
+                'permission_id' => 22,
+                'role_id' => 1
+            ],
+            [
+                'permission_id' => 22,
                 'role_id' => 2
             ],
         ]);
