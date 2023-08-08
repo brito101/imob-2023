@@ -37,6 +37,13 @@
                             <h3 class="card-title">Dados Cadastrais do Usuário</h3>
                         </div>
 
+                        @if ($user->photo != null)
+                            <div class='col-12 col-md-6 mt-3 d-flex'>
+                                <img src="{{ url('storage/users/' . $user->photo) }}" alt="{{ $user->name }}"
+                                    style="max-width: 100%;" class="profile-user-img img-fluid img-circle ml-2">
+                            </div>
+                        @endif
+
                         <form method="POST" action="{{ route('admin.users.update', ['user' => $user->id]) }}"
                             enctype="multipart/form-data">
                             @method('PUT')
@@ -50,13 +57,19 @@
                                             placeholder="Nome Completo" name="name"
                                             value="{{ old('name') ?? $user->name }}" required>
                                     </div>
+                                    <div class="col-12 col-md-6 form-group px-0 pl-md-2">
+                                        <label for="document_person">CPF</label>
+                                        <input type="text" class="form-control" id="document_person" placeholder="CPF"
+                                            name="document_person"
+                                            value="{{ old('document_person') ?? $user->document_person }}">
+                                    </div>
                                 </div>
 
                                 <div class="d-flex flex-wrap justify-content-between">
                                     <div class="col-12 col-md-6 form-group px-0 pr-md-2">
                                         <label for="telephone">Telefone</label>
                                         <input type="tel" class="form-control" id="telephone" placeholder="Telefone"
-                                            name="telephone" value="{{ old('telephone') ?? $user->telephone }}" required>
+                                            name="telephone" value="{{ old('telephone') ?? $user->telephone }}">
                                     </div>
                                     <div class="col-12 col-md-6 form-group px-0 pl-md-2">
                                         <label for="cell">Celular</label>
@@ -66,21 +79,15 @@
                                 </div>
 
                                 <div class="d-flex flex-wrap justify-content-between">
-                                    <div class="col-12 col-md-6 form-group px-0 pr-md-2 d-flex flex-wrap">
+                                    <div class="col-12 col-md-6 form-group px-0 pr-md-2">
+                                        <label for="creci">CRECI</label>
+                                        <input type="text" class="form-control" id="creci" placeholder="CRECI"
+                                            name="creci" value="{{ old('creci') ?? $user->creci }}">
+                                    </div>
 
-                                        <div class="{{ $user->photo != null ? 'col-md-9' : 'col-md-12' }} px-0">
-                                            <x-adminlte-input-file name="photo" label="Foto"
-                                                placeholder="Selecione uma imagem..." legend="Selecionar" />
-                                        </div>
-
-                                        @if ($user->photo != null)
-                                            <div
-                                                class='col-12 col-md-3 align-self-center mt-3 d-flex justify-content-center justify-content-md-end px-0'>
-                                                <img src="{{ url('storage/users/' . $user->photo) }}"
-                                                    alt="{{ $user->name }}" style="max-width: 80%;"
-                                                    class="img-thumbnail d-block">
-                                            </div>
-                                        @endif
+                                    <div class="col-12 col-md-6 form-group px-0 pl-md-2">
+                                        <x-adminlte-input-file name="photo" label="Foto"
+                                            placeholder="Selecione uma imagem..." legend="Selecionar" />
                                     </div>
                                 </div>
 
@@ -129,6 +136,6 @@
 
 @section('custom_js')
     <script src="{{ asset('vendor/jquery/jquery.inputmask.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/address.js') }}"></script>
     <script src="{{ asset('js/phone.js') }}"></script>
+    <script src="{{ asset('js/document-person.js') }}"></script>
 @endsection

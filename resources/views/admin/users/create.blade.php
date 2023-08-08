@@ -47,13 +47,18 @@
                                         <input type="text" class="form-control" id="name"
                                             placeholder="Nome Completo" name="name" value="{{ old('name') }}" required>
                                     </div>
+                                    <div class="col-12 col-md-6 form-group px-0 pl-md-2">
+                                        <label for="document_person">CPF</label>
+                                        <input type="text" class="form-control" id="document_person" placeholder="CPF"
+                                            name="document_person" value="{{ old('document_person') }}">
+                                    </div>
                                 </div>
 
                                 <div class="d-flex flex-wrap justify-content-between">
                                     <div class="col-12 col-md-6 form-group px-0 pr-md-2">
                                         <label for="telephone">Telefone</label>
                                         <input type="tel" class="form-control" id="telephone" placeholder="Telefone"
-                                            name="telephone" value="{{ old('telephone') }}" required>
+                                            name="telephone" value="{{ old('telephone') }}">
                                     </div>
                                     <div class="col-12 col-md-6 form-group px-0 pl-md-2">
                                         <label for="cell">Celular</label>
@@ -64,6 +69,12 @@
 
                                 <div class="d-flex flex-wrap justify-content-between">
                                     <div class="col-12 col-md-6 form-group px-0 pr-md-2">
+                                        <label for="creci">CRECI</label>
+                                        <input type="text" class="form-control" id="creci" placeholder="CRECI"
+                                            name="creci" value="{{ old('creci') }}">
+                                    </div>
+
+                                    <div class="col-12 col-md-6 form-group px-0 pl-md-2">
                                         <x-adminlte-input-file name="photo" label="Foto"
                                             placeholder="Selecione uma imagem..." legend="Selecionar" />
                                     </div>
@@ -111,4 +122,5 @@
 @section('custom_js')
     <script src="{{ asset('vendor/jquery/jquery.inputmask.bundle.min.js') }}"></script>
     <script src="{{ asset('js/phone.js') }}"></script>
+    <script src="{{ asset('js/document-person.js') }}"></script>
 @endsection
