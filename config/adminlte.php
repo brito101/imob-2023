@@ -284,6 +284,26 @@ return [
             ],
         ],
         [
+            'text'        => 'Propriedades',
+            'url'         => '#',
+            'icon'        => 'fas fa-fw fa-home mr-2',
+            'can'         => 'Acessar Propriedades',
+            'submenu' => [
+                [
+                    'text' => 'Listagem de Propriedades',
+                    'url'  => 'admin/properties',
+                    'icon' => 'fas fa-fw fa-chevron-right',
+                    'can'  => 'Listar Propriedades',
+                ],
+                [
+                    'text' => 'Cadastro de Propriedade',
+                    'url'  => 'admin/properties/create',
+                    'icon' => 'fas fa-fw fa-chevron-right',
+                    'can'  => 'Criar Propriedades',
+                ],
+            ],
+        ],
+        [
             'text'    => 'ACL',
             'icon'    => 'fas fa-fw fa-user-shield mr-2',
             'can'     => 'Acessar ACL',

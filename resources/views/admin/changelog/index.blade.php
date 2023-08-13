@@ -2,6 +2,15 @@
 
 @section('title', '- Changelog')
 
+@section('adminlte_css')
+    <style>
+        .callout.callout-primary {
+            border-left-color: #007bff;
+        }
+    </style>
+@endsection
+
+
 @section('content')
     <div class="content-header">
         <div class="container-fluid">
@@ -39,12 +48,13 @@
                             <div class="col-12">
                                 <h4>Versionamento:</h4>
 
-                                <x-adminlte-callout theme="success" class="elevation-2" title-class="text-uppercase"
+                                <x-adminlte-callout theme="primary" class="elevation-2" title-class="text-uppercase"
                                     title="1.0.0">
                                     <ul>
                                         <li>Módulo de ACL com perfis e permissões</li>
                                         <li>Módulo de Usuários</li>
                                         <li>Módulo de Agências</li>
+                                        <li>Módulo de Propriedades</li>
                                         <li>Changelog</li>
                                     </ul>
                                 </x-adminlte-callout>
@@ -54,7 +64,7 @@
                     </div>
                     <div class="col-12 col-md-12 col-lg-6 order-1 order-md-2">
 
-                        <x-adminlte-profile-widget name="{{ env('APP_NAME')}}" desc="{{ env('APP_DES')}}"
+                        <x-adminlte-profile-widget name="{{ env('APP_NAME') }}" desc="{{ env('APP_DES') }}"
                             theme="bg-gradient-dark" img="{{ asset('img/favicon.svg') }}" layout-type="classic">
                             <x-adminlte-profile-row-item
                                 title="Criador: Rodrigo Carvalho de Brito, e-mail: contato@rodrigobrito.dev.br"

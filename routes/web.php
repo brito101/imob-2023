@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\{
     ACL\RoleController,
     AgencyController,
     ChangelogController,
+    PropertyController,
 };
 
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +36,9 @@ Route::group(['middleware' => ['auth']], function () {
 
         /** Agencies */
         Route::resource('agencies', AgencyController::class);
+
+        /** Properties */
+        Route::resource('properties', PropertyController::class);
 
         /**
          * ACL

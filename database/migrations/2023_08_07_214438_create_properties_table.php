@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('headline')->nullable();
             $table->string('experience')->nullable();
+            $table->string('cover')->nullable();
 
             $table->boolean('sale')->nullable();
             $table->boolean('rent')->nullable();
@@ -84,7 +85,7 @@ return new class extends Migration
 
         DB::statement("
         CREATE OR REPLACE VIEW `properties_view` AS
-        SELECT p.id, p.title, p.views
+        SELECT p.id, p.title, p.cover, p.type, p.category, p.experience, p.views
         FROM properties as p
         WHERE p.deleted_at IS NULL
         ");
