@@ -254,6 +254,16 @@ return [
         'pool' => 'piscina',
         'steam_room' => 'sauna',
         'view_of_the_sea' => 'vista para o mar',
+        'sequence' => 'sequência',
+        'color' => 'cor',
+        'step' => 'etapa',
+        'step_id' => 'etapa',
+        'observations' => 'observações',
+        'agency' => 'agência',
+        'agency_id' => 'agência',
+        'meeting' => 'reunião',
+        'status_sale' => 'situação do processo',
+        'reason_refusal' => 'motivo da recusa',
     ],
 
 ];

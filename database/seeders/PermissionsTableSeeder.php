@@ -158,6 +158,65 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => new DateTime('now')
             ],
+            /** Configurations 28 */
+            [
+                'name' => 'Acessar Configurações',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            /** Steps 29 to 33 */
+            [
+                'name' => 'Acessar Etapas',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            [
+                'name' => 'Listar Etapas',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            [
+                'name' => 'Criar Etapas',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            [
+                'name' => 'Editar Etapas',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            [
+                'name' => 'Excluir Etapas',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+             /** Clients 34 to 38 */
+             [
+                'name' => 'Acessar Clientes',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            [
+                'name' => 'Listar Clientes',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            [
+                'name' => 'Criar Clientes',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            [
+                'name' => 'Editar Clientes',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+            [
+                'name' => 'Excluir Clientes',
+                'guard_name' => 'web',
+                'created_at' => new DateTime('now')
+            ],
+
         ]);
     }
 }

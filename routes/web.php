@@ -7,7 +7,10 @@ use App\Http\Controllers\Admin\{
     ACL\RoleController,
     AgencyController,
     ChangelogController,
+    ClientController,
+    ClientFunnelController,
     PropertyController,
+    StepController,
 };
 
 use Illuminate\Support\Facades\Auth;
@@ -37,8 +40,19 @@ Route::group(['middleware' => ['auth']], function () {
         /** Agencies */
         Route::resource('agencies', AgencyController::class);
 
+        /** Clients */
+        Route::get('/clients/timeline/{id}', [ClientController::class, 'timeline']);
+        Route::resource('clients', ClientController::class);
+        /** Clients Funnel */
+        Route::post('clients-funnel-ajax-update', [ClientFunnelController::class, 'update'])->name('clients-funnel-ajax.update');
+        Route::delete('clients-funnel-ajax-destroy', [ClientFunnelController::class, 'destroy'])->name('clients-funnel-ajax.destroy');
+        Route::resource('clients-funnel', ClientFunnelController::class);
+
         /** Properties */
         Route::resource('properties', PropertyController::class);
+
+        /** Steps */
+        Route::resource('steps', StepController::class);
 
         /**
          * ACL
@@ -67,6 +81,6 @@ Auth::routes([
     'register' => false,
 ]);
 
-Route::fallback(function () {
-    return view('404');
-});
+// Route::fallback(function () {
+//     return view('404');
+// });

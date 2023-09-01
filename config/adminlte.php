@@ -284,6 +284,26 @@ return [
             ],
         ],
         [
+            'text'        => 'Clientes',
+            'url'         => '#',
+            'icon'        => 'fas fa-fw fa-user-plus mr-2',
+            'can'         => 'Acessar Clientes',
+            'submenu' => [
+                [
+                    'text' => 'Listagem de Clientes',
+                    'url'  => 'admin/clients',
+                    'icon' => 'fas fa-fw fa-chevron-right',
+                    'can'  => 'Listar Clientes',
+                ],
+                [
+                    'text' => 'Cadastro de Clientes',
+                    'url'  => 'admin/clients/create',
+                    'icon' => 'fas fa-fw fa-chevron-right',
+                    'can'  => 'Criar Clientes',
+                ],
+            ],
+        ],
+        [
             'text'        => 'Propriedades',
             'url'         => '#',
             'icon'        => 'fas fa-fw fa-home mr-2',
@@ -300,6 +320,34 @@ return [
                     'url'  => 'admin/properties/create',
                     'icon' => 'fas fa-fw fa-chevron-right',
                     'can'  => 'Criar Propriedades',
+                ],
+            ],
+        ],
+        [
+            'text'        => 'Configurações',
+            'url'         => '#',
+            'icon'        => 'fas fa-fw fa-cog mr-2',
+            'can'         => 'Acessar Configurações',
+            'submenu' => [
+                [
+                    'text'        => 'Etapas de Prospecção',
+                    'url'         => '#',
+                    'icon'        => 'fas fa-fw fa-shoe-prints mr-2',
+                    'can'         => 'Acessar Etapas',
+                    'submenu' => [
+                        [
+                            'text' => 'Listagem de Etapas',
+                            'url'  => 'admin/steps',
+                            'icon' => 'fas fa-fw fa-chevron-right',
+                            'can'  => 'Listar Etapas',
+                        ],
+                        [
+                            'text' => 'Cadastro de Etapas',
+                            'url'  => 'admin/steps/create',
+                            'icon' => 'fas fa-fw fa-chevron-right',
+                            'can'  => 'Criar Etapas',
+                        ],
+                    ],
                 ],
             ],
         ],
