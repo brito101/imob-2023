@@ -15,7 +15,7 @@ class Client extends Model
     protected $fillable = [
         'name', 'document_person', 'document_registry',
         'email', 'telephone', 'cell', 'zipcode', 'street', 'number', 'complement',
-        'neighborhood', 'state', 'city', 'company', 'observations', 'step_id',  'agency_id', 'user_id', 'meeting', 'status_sale', 'reason_refusal',
+        'neighborhood', 'state', 'city', 'company', 'observations', 'step_id',  'agency_id', 'user_id', 'meeting',
     ];
 
     /** Relationships */

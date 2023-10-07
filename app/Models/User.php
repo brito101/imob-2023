@@ -56,4 +56,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /** Relationships */
+    public function brokers()
+    {
+        return $this->hasMany(Broker::class);
+    }
+
+    /** Cascade actions */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($operation) {
+            $operation->brokers()->delete();
+        });
+    }
 }

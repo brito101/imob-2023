@@ -28,6 +28,12 @@ class UsersTableSeeder extends Seeder
                 'password'  => bcrypt(env('ADMIN_PASSWD')),
                 'created_at' => new DateTime('now')
             ],
+            [
+                'name'      => 'Corretor',
+                'email'     => env('BROKER_EMAIL'),
+                'password'  => bcrypt(env('BROKER_PASSWD')),
+                'created_at' => new DateTime('now')
+            ],
         ]);
     }
 }

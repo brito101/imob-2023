@@ -10,4 +10,13 @@ class Client extends Model
     use HasFactory;
 
     protected $table = 'clients_view';
+
+    protected $appends = [
+        'created_at_pt'
+    ];
+
+    public function getCreatedAtPtAttribute()
+    {
+        return date('d/m/Y', strtotime($this->created_at));
+    }
 }

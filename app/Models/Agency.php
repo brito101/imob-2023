@@ -33,4 +33,14 @@ class Agency extends Model
     {
         return $this->hasMany(Broker::class);
     }
+
+    /** Cascade actions */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($operation) {
+            $operation->brokers()->delete();
+        });
+    }
 }

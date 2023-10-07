@@ -35,14 +35,14 @@ Route::group(['middleware' => ['auth']], function () {
 
         /** Users */
         Route::get('/user/edit', [UserController::class, 'edit'])->name('user.edit');
-        Route::resource('users', UserController::class);
+        Route::resource('users', UserController::class)->except('show');
 
         /** Agencies */
-        Route::resource('agencies', AgencyController::class);
+        Route::resource('agencies', AgencyController::class)->except('show');
 
         /** Clients */
         Route::get('/clients/timeline/{id}', [ClientController::class, 'timeline']);
-        Route::resource('clients', ClientController::class);
+        Route::resource('clients', ClientController::class)->except('show');
         /** Clients Funnel */
         Route::post('clients-funnel-ajax-update', [ClientFunnelController::class, 'update'])->name('clients-funnel-ajax.update');
         Route::delete('clients-funnel-ajax-destroy', [ClientFunnelController::class, 'destroy'])->name('clients-funnel-ajax.destroy');
@@ -71,16 +71,14 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 /** Web */
-/** Home */
-// Route::get('/', [SiteController::class, 'index'])->name('home');
-Route::get('/', function () {
-    return redirect('admin');
+Route::group(['middleware' => ['auth']], function () {
+    /** Home */
+    // Route::get('/', [SiteController::class, 'index'])->name('home');
+    Route::get('/', function () {
+        return redirect('admin');
+    });
 });
 
 Auth::routes([
     'register' => false,
 ]);
-
-// Route::fallback(function () {
-//     return view('404');
-// });

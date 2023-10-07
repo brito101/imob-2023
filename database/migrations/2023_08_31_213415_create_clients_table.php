@@ -52,8 +52,6 @@ return new class extends Migration
                 ->onDelete('cascade');
 
             $table->date('meeting')->nullable();
-            $table->string('status_sale')->nullable();
-            $table->string('reason_refusal')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
@@ -61,7 +59,7 @@ return new class extends Migration
 
         DB::statement("
         CREATE OR REPLACE VIEW `clients_view` AS
-        SELECT c.id, c.name, c.email, c.telephone, a.alias_name, c.agency_id, c.step_id, s.name as step, u.name as broker
+        SELECT c.id, c.name, c.email, c.telephone, a.alias_name, c.agency_id, c.step_id, s.name as step, u.name as broker, c.created_at
         FROM clients c
         LEFT JOIN agencies a ON a.id = c.agency_id
         LEFT JOIN steps s ON s.id = c.step_id

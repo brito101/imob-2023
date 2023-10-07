@@ -254,7 +254,7 @@ class RolesHasPermissionTableSeeder extends Seeder
                 'permission_id' => 33,
                 'role_id' => 2
             ],
-            /** Clients  34 to 38 (programmer and administrator)*/
+            /** Clients  34 to 38 (programmer, administrator and brokers)*/
             [
                 'permission_id' => 34,
                 'role_id' => 1
@@ -262,6 +262,10 @@ class RolesHasPermissionTableSeeder extends Seeder
             [
                 'permission_id' => 34,
                 'role_id' => 2
+            ],
+            [
+                'permission_id' => 34,
+                'role_id' => 3
             ],
             [
                 'permission_id' => 35,
@@ -272,12 +276,20 @@ class RolesHasPermissionTableSeeder extends Seeder
                 'role_id' => 2
             ],
             [
+                'permission_id' => 35,
+                'role_id' => 3
+            ],
+            [
                 'permission_id' => 36,
                 'role_id' => 1
             ],
             [
                 'permission_id' => 36,
                 'role_id' => 2
+            ],
+            [
+                'permission_id' => 36,
+                'role_id' => 3
             ],
             [
                 'permission_id' => 37,
@@ -288,12 +300,20 @@ class RolesHasPermissionTableSeeder extends Seeder
                 'role_id' => 2
             ],
             [
+                'permission_id' => 37,
+                'role_id' => 3
+            ],
+            [
                 'permission_id' => 38,
                 'role_id' => 1
             ],
             [
                 'permission_id' => 38,
                 'role_id' => 2
+            ],
+            [
+                'permission_id' => 38,
+                'role_id' => 3
             ],
         ]);
     }

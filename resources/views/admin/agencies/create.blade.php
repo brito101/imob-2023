@@ -51,9 +51,7 @@
                                         <input type="text" class="form-control" id="social_name"
                                             placeholder="Nome Social" name="social_name" value="{{ old('social_name') }}">
                                     </div>
-                                </div>
 
-                                <div class="d-flex flex-wrap justify-content-between">
                                     <div class="col-12 col-md-6 form-group px-0 pr-md-2">
                                         <label for="document_company">CNPJ</label>
                                         <input type="text" class="form-control" id="document_company" placeholder="CNPJ"
@@ -65,9 +63,7 @@
                                             placeholder="Inscrição Estadual" name="document_company_secondary"
                                             value="{{ old('document_company_secondary') }}">
                                     </div>
-                                </div>
 
-                                <div class="d-flex flex-wrap justify-content-between">
                                     <div class="col-12 col-md-6 form-group px-0 pr-md-2">
                                         <label for="email">E-mail</label>
                                         <input type="email" class="form-control" id="email" placeholder="E-mail"
@@ -79,66 +75,57 @@
                                         <input type="tel" class="form-control" id="phone" placeholder="Telefone"
                                             name="phone" value="{{ old('phone') }}">
                                     </div>
-                                </div>
 
-                                <div class="d-flex flex-wrap justify-content-between">
-                                    <div class="col-12 col-md-6 form-group px-0 pr-md-2">
+                                    <div class="col-12 col-md-4 form-group px-0 pr-md-2">
                                         <label for="zipcode">CEP</label>
                                         <input type="tel" class="form-control" id="zipcode" placeholder="CEP"
                                             name="zipcode" value="{{ old('zipcode') }}">
                                     </div>
-                                    <div class="col-12 col-md-6 form-group px-0 pl-md-2">
+                                    <div class="col-12 col-md-8 form-group px-0 pl-md-2">
                                         <label for="street">Rua</label>
                                         <input type="text" class="form-control" id="street" placeholder="Rua"
                                             name="street" value="{{ old('street') }}">
                                     </div>
-                                </div>
 
-                                <div class="d-flex flex-wrap justify-content-between">
-                                    <div class="col-12 col-md-6 form-group px-0 pr-md-2">
+                                    <div class="col-12 col-md-4 form-group px-0 pr-md-2">
                                         <label for="number">Número</label>
                                         <input type="text" class="form-control" id="number" placeholder="Número"
                                             name="number" value="{{ old('number') }}">
                                     </div>
-                                    <div class="col-12 col-md-6 form-group px-0 pl-md-2">
+                                    <div class="col-12 col-md-8 form-group px-0 pl-md-2">
                                         <label for="complement">Complemento</label>
                                         <input type="text" class="form-control" id="complement"
                                             placeholder="Complemento" name="complement" value="{{ old('complement') }}">
                                     </div>
-                                </div>
 
-                                <div class="d-flex flex-wrap justify-content-between">
                                     <div class="col-12 col-md-6 form-group px-0 pr-md-2">
                                         <label for="neighborhood">Bairro</label>
                                         <input type="text" class="form-control" id="neighborhood"
                                             placeholder="Bairro" name="neighborhood" value="{{ old('neighborhood') }}">
                                     </div>
-                                    <div class="col-12 col-md-6 form-group px-0 pl-md-2">
+                                    <div class="col-12 col-md-4 form-group px-0 px-md-2">
                                         <label for="city">Cidade</label>
                                         <input type="text" class="form-control" id="city" placeholder="Cidade"
                                             name="city" value="{{ old('city') }}">
                                     </div>
-                                </div>
 
-                                <div class="d-flex flex-wrap justify-content-between">
-                                    <div class="col-12 col-md-6 form-group px-0 pr-md-2">
+                                    <div class="col-12 col-md-2 form-group px-0 pl-md-2">
                                         <label for="state">Estado</label>
                                         <input type="text" class="form-control" id="state" placeholder="UF"
                                             name="state" value="{{ old('state') }}">
                                     </div>
-                                </div>
 
-                                @php
-                                    $config = [
-                                        'title' => 'Selecione múltiplos...',
-                                        'liveSearch' => true,
-                                        'liveSearchPlaceholder' => 'Pesquisar...',
-                                        'showTick' => true,
-                                        'actionsBox' => true,
-                                    ];
-                                @endphp
 
-                                <div class="d-flex flex-wrap justify-content-between">
+                                    @php
+                                        $config = [
+                                            'title' => 'Selecione múltiplos...',
+                                            'liveSearch' => true,
+                                            'liveSearchPlaceholder' => 'Pesquisar...',
+                                            'showTick' => true,
+                                            'actionsBox' => true,
+                                        ];
+                                    @endphp
+
                                     <div class="col-12 form-group px-0">
                                         <x-adminlte-select-bs id="brokers" name="brokers[]" label="Corretores"
                                             label-class="text-dark" igroup-size="md" :config="$config" multiple
