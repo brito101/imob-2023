@@ -4,6 +4,7 @@
 
 - User controller
 - Agency controller with brokers
+- Client controller with timeline
 - Visitors log
 
 ## Usage
