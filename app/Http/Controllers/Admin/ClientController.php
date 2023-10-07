@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\ClientRequest;
 use App\Models\Agency;
 use App\Models\Broker;
 use App\Models\Client;
+use App\Models\ClientHistory;
 use App\Models\Step;
 use App\Models\Views\Client as ViewsClient;
 use Illuminate\Http\Request;
@@ -204,5 +205,33 @@ class ClientController extends Controller
                 ->withInput()
                 ->with('error', 'Erro ao excluir!');
         }
+    }
+
+    public function timeline($id)
+    {
+        if (!Auth::user()->hasPermissionTo('Acessar Clientes')) {
+            abort(403, 'Acesso não autorizado');
+        }
+        if (Auth::user()->hasRole('Programador|Administrador')) {
+            $client = Client::find($id);
+        } else {
+            $client = Client::where('id', $id)->whereIn('agency_id', Auth::user()->brokers->pluck('agency_id'))->first();
+        }
+
+        if (!$client) {
+            abort(403, 'Acesso não autorizado');
+        }
+
+        if (!$client) {
+            abort(403, 'Acesso não autorizado');
+        }
+
+        $histories = ClientHistory::where('client_id', $client->id)
+            ->orderBy('created_at', 'desc')
+            ->with('client')
+            ->with('agency')
+            ->get();
+
+        return view('admin.clients.history', compact('client', 'histories'));
     }
 }

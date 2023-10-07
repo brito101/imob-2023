@@ -19,7 +19,7 @@ class ClientObserver
         $history = new ClientHistory();
         $history->client_id = $client->id;
         $history->action = "criado";
-        $history->step = $client->step->name;
+        $history->step_id = $client->step_id;
         $history->user_id = Auth::user()->id;
         $history->agency_id = $client->agency_id;
         $history->saveQuietly();
@@ -36,7 +36,7 @@ class ClientObserver
         $history = new ClientHistory();
         $history->client_id = $client->id;
         $history->action = "editado";
-        $history->step = $client->step->name;
+        $history->step_id = $client->step_id;
         $history->user_id = Auth::user()->id;
         $history->agency_id = $client->agency_id;
         $history->saveQuietly();
@@ -53,7 +53,7 @@ class ClientObserver
         $history = new ClientHistory();
         $history->client_id = $client->id;
         $history->action = "deletado";
-        $history->step = $client->step->name;
+        $history->step_id = $client->step_id;
         $history->user_id = Auth::user()->id;
         $history->agency_id = $client->agency_id;
         $history->saveQuietly();
@@ -70,7 +70,7 @@ class ClientObserver
         $history = new ClientHistory();
         $history->client_id = $client->id;
         $history->action = "restaurado";
-        $history->step = $client->step->name;
+        $history->step_id = $client->step_id;
         $history->user_id = Auth::user()->id;
         $history->agency_id = $client->agency_id;
         $history->saveQuietly();
@@ -87,7 +87,7 @@ class ClientObserver
         $history = new ClientHistory();
         $history->client_id = $client->id;
         $history->action = "deletado forçadamente";
-        $history->step = $client->step->name;
+        $history->step_id = $client->step_id;
         $history->user_id = Auth::user()->id;
         $history->agency_id = $client->agency_id;
         $history->saveQuietly();

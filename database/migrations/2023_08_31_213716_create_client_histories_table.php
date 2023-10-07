@@ -18,12 +18,15 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('action');
-            $table->string('step');
+            $table->foreignId('step_id')->nullable()
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->foreignId('user_id')->nullable()
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignId('agency_id')
+            $table->foreignId('agency_id')->nullable()
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

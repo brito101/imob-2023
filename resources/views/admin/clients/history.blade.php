@@ -55,16 +55,16 @@
 
                                 <div class="timeline-item col-12 col-md-8" style="max-width: 80%">
                                     <h3 class="timeline-header no-border">
-                                        Cliente <a href="{{ route('admin.clients.show', ['client' => $history->client]) }}"
+                                        Cliente <a href="{{ route('admin.clients.edit', ['client' => $history->client]) }}"
                                             target="_blank">{{ $history->client->name }}</a> {{ $history->action }} por
                                         {{ $history->user->name }}.</h3>
                                     <div class="timeline-body">
-                                        Status nesta data: <b>{{ $history->trade_status }}</b>.
+                                        Status nesta data: <b>{{ $history->step->name }}</b>.
                                     </div>
-                                    @if ($history->subsidiary)
+                                    @if ($history->agency)
                                         <div class="timeline-body pt-0">
-                                            Filial nesta data: {{ $history->subsidiary->alias_name }} de
-                                            {{ $history->subsidiary->city }}/{{ $history->subsidiary->state }}.
+                                            Filial nesta data: {{ $history->agency->alias_name }} de
+                                            {{ $history->agency->city }}/{{ $history->agency->state }}.
                                         </div>
                                     @endif
                                 </div>
@@ -78,16 +78,16 @@
 
                                     <div class="timeline-item col-12 col-md-8" style="max-width: 80%">
                                         <h3 class="timeline-header no-border">
-                                            Cliente <a href="{{ route('admin.clients.show', ['client' => $client->id]) }}"
+                                            Cliente <a href="{{ route('admin.clients.edit', ['client' => $client->id]) }}"
                                                 target="_blank">{{ $client->name }}</a> não possui dados históricos no momento.
                                         </h3>
                                         <div class="timeline-body">
-                                            Status nesta data: <b>{{ $client->trade_status }}</b>.
+                                            Status nesta data: <b>{{ $client->step->name }}</b>.
                                         </div>
-                                        @isset($client->subsidiary)
+                                        @isset($client->agency)
                                             <div class="timeline-body pt-0">
-                                                Filial nesta data: {{ $client->subsidiary->alias_name }} de
-                                                {{ $client->subsidiary->city }}/{{ $client->subsidiary->state }}.
+                                                Filial nesta data: {{ $client->agency->alias_name }} de
+                                                {{ $client->agency->city }}/{{ $client->agency->state }}.
                                             </div>
                                         @endisset
                                     </div>
@@ -102,7 +102,7 @@
                                     <i class="fas fa-user-plus bg-purple"></i>
                                     <div class="timeline-item col-12 col-md-8" style="max-width: 80%">
                                         <h3 class="timeline-header no-border">
-                                            Cliente <a href="{{ route('admin.clients.show', ['client' => $client->id]) }}"
+                                            Cliente <a href="{{ route('admin.clients.edit', ['client' => $client->id]) }}"
                                                 target="_blank">{{ $client->name }}</a> criado.</h3>
                                     </div>
                                 </div>

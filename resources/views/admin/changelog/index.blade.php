@@ -54,6 +54,12 @@
                                         <li>Módulo de ACL com perfis e permissões</li>
                                         <li>Módulo de Usuários</li>
                                         <li>Módulo de Agências</li>
+                                        <li>Módulo de Clientes com:
+                                            <ul>
+                                                <li>Timeline</li>
+                                                <li>Kanban</li>
+                                            </ul>
+                                        </li>
                                         <li>Módulo de Propriedades</li>
                                         <li>Changelog</li>
                                     </ul>
@@ -78,9 +84,6 @@
                             <x-adminlte-profile-col-item title="Laravel" icon="fab fa-2x fa-laravel text-primary" size=4 />
                         </x-adminlte-profile-widget>
 
-                        <p class="text-muted">
-                            Sistema Imob-2023 em Laravel 10
-                        </p>
                     </div>
                 </div>
             </div>

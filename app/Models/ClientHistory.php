@@ -15,9 +15,9 @@ class ClientHistory extends Model
     protected $fillable = [
         'client_id',
         'action',
-        'trade_status',
+        'step_id',
         'user_id',
-        'subsidiary_id'
+        'agency_id'
     ];
 
     /** Relationships */
@@ -39,6 +39,13 @@ class ClientHistory extends Model
     {
         return $this->belongsTo(Agency::class)->withDefault([
             'alias_name' => 'Inexistente',
+        ]);
+    }
+
+    public function step()
+    {
+        return $this->belongsTo(Step::class)->withDefault([
+            'name' => 'Inexistente',
         ]);
     }
 
