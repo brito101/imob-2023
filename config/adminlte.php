@@ -290,6 +290,12 @@ return [
             'can'         => 'Acessar Clientes',
             'submenu' => [
                 [
+                    'text' => 'Funil de Clientes',
+                    'url'  => 'admin/clients-funnel',
+                    'icon' => 'fas fa-fw fa-chevron-right',
+                    'can'  => 'Listar Clientes',
+                ],
+                [
                     'text' => 'Listagem de Clientes',
                     'url'  => 'admin/clients',
                     'icon' => 'fas fa-fw fa-chevron-right',

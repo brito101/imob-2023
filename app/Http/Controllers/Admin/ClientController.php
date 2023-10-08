@@ -38,8 +38,7 @@ class ClientController extends Controller
             return Datatables::of($clients)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) use ($token) {
-                    $btn = '<a class="btn btn-xs btn-warning mx-1 shadow" title="Kanban" href="clients/kanban/' . $row->id . '"><i class="fa fa-lg fa-fw fa-square"></i></a>' .
-                        '<a class="btn btn-xs btn-dark mx-1 shadow" title="Timeline" href="clients/timeline/' . $row->id . '"><i class="fa fa-lg fa-fw fa-clock"></i></a>' .
+                    $btn = '<a class="btn btn-xs btn-dark mx-1 shadow" title="Timeline" href="clients/timeline/' . $row->id . '"><i class="fa fa-lg fa-fw fa-clock"></i></a>' .
                         '<a class="btn btn-xs btn-primary mx-1 shadow" title="Editar" href="clients/' . $row->id . '/edit"><i class="fa fa-lg fa-fw fa-pen"></i></a>' .
                         '<form method="POST" action="clients/' . $row->id . '" class="btn btn-xs px-0"><input type="hidden" name="_method" value="DELETE"><input type="hidden" name="_token" value="' . $token . '"><button class="btn btn-xs btn-danger mx-1 shadow" title="Excluir" onclick="return confirm(\'Confirma a exclusão deste cliente?\')"><i class="fa fa-lg fa-fw fa-trash"></i></button></form>';
                     return $btn;

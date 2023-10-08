@@ -40,6 +40,13 @@ class Client extends Model
         ]);
     }
 
+    public function broker()
+    {
+        return $this->belongsTo(Broker::class)->withDefault([
+            'name' => 'Inexistente',
+        ]);
+    }
+
     /** Aux */
     public function getAddress()
     {
