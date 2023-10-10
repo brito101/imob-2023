@@ -22,8 +22,8 @@ class ClientFunnelRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'client_id' => 'required|exists:clients,id',
-            'description' => 'max:191',
+            'client' => 'required|exists:clients,id',
+            'step' => 'required|exists:steps,id',
         ];
     }
 }

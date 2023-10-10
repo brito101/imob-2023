@@ -1,5 +1,16 @@
-const item = $("#kanban").data("operation");
-let area = null;
+function countItems() {
+    $(".draggable-area").each(function () {
+        $(this)
+            .parent()
+            .find(".count")
+            .text($(this).find(".draggable-item").length);
+    });
+}
+
+countItems();
+
+let client = null;
+let step = null;
 let timer;
 
 function updateKanban() {
@@ -10,10 +21,13 @@ function updateKanban() {
         type: "POST",
         url: $("#kanban").data("action"),
         data: {
-            area,
+            client,
+            step,
         },
         success: function (res) {
-            area = null;
+            client = null;
+            step = null;
+            countItems();
         },
     });
 }
@@ -31,13 +45,16 @@ function dragEnd(e) {
 function dragOver(e) {
     let dragItem = document.querySelector(".draggable-item.dragging");
     e.currentTarget.appendChild(dragItem);
-    if (e.target.dataset.area !== undefined) {
-        area = e.target.dataset.area;
-        if (timer) clearTimeout(timer);
-        timer = setTimeout(() => {
-            updateKanban();
-            timer = null;
-        }, 500);
+    if (e.target.dataset.step !== undefined) {
+        client = dragItem.dataset.client;
+        step = e.target.dataset.step;
+        if (client && step) {
+            if (timer) clearTimeout(timer);
+            timer = setTimeout(() => {
+                updateKanban();
+                timer = null;
+            }, 500);
+        }
     }
 }
 

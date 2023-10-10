@@ -32,17 +32,17 @@
             <div class="row">
 
 
-                <div class="row d-flex flex-nowrap px-2 h-100 pt-2" style="overflow-x: auto">
+                <div class="row d-flex flex-nowrap px-2 h-100 pt-2" style="overflow-x: auto" id="kanban"
+                    data-action="{{ route('admin.clients.updateKanban') }}">
 
                     @foreach ($steps as $step)
                         <div class="col-12 col-md-3 p-2">
                             <div class="card card-row card-light" style="border: 2px solid {{ $step->color }}">
                                 <div class="card-header">
-                                    <h3 class="card-title">{{ $step->name }}<span class="ml-2 badge badge-pill badge-dark"
-                                            id="scheduledVisitCount">contador</span>
+                                    <h3 class="card-title">{{ $step->name }}<span class="ml-2 badge badge-pill badge-dark count"></span>
                                     </h3>
                                 </div>
-                                <div class="card-body draggable-area" data-area=""
+                                <div class="card-body draggable-area" data-step="{{ $step->id }}"
                                     style="background-color: {{ $step->color }}">
                                     @foreach ($clients as $client)
                                         @if ($client->step_id == $step->id)

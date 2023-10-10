@@ -1,4 +1,4 @@
-<div draggable="true" class="draggable-item" data-item="{{ $client->id }}">
+<div draggable="true" class="draggable-item" data-client="{{ $client->id }}">
     <div class="card card-secondary card-outline">
         <div class="card-header" data-toggle="collapse" href="#collapse{{ $client->id }}" role="button"
             aria-expanded="false" aria-controls="collapse{{ $client->id }}">

@@ -43,9 +43,10 @@ Route::group(['middleware' => ['auth']], function () {
         /** Clients */
         Route::get('/clients/timeline/{id}', [ClientController::class, 'timeline']);
         Route::resource('clients', ClientController::class)->except('show');
+
         /** Clients Funnel */
-        Route::post('clients-funnel-ajax-update', [ClientFunnelController::class, 'update'])->name('clients-funnel-ajax.update');
-        Route::delete('clients-funnel-ajax-destroy', [ClientFunnelController::class, 'destroy'])->name('clients-funnel-ajax.destroy');
+        Route::post('clients-funnel-updateKanban', [ClientFunnelController::class, 'updateKanban'])->name('clients.updateKanban');
+
         Route::resource('clients-funnel', ClientFunnelController::class);
 
         /** Properties */

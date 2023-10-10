@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\CheckPermission;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ClientFunnelRequest;
 use App\Models\Client;
-use App\Models\ClientFunnel;
 use App\Models\Step;
 use App\Models\Views\Client as ViewsClient;
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ class ClientFunnelController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
         CheckPermission::checkAuth('Listar Clientes');
 
@@ -31,51 +31,22 @@ class ClientFunnelController extends Controller
         return view('admin.clients.funnel.index', \compact('steps', 'clients'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function updateKanban(ClientFunnelRequest $request)
     {
-        //
-    }
+        CheckPermission::checkAuth('Editar Clientes');
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if (Auth::user()->hasRole('Programador|Administrador')) {
+            $client = Client::find($request->client);
+        } else {
+            $client = Client::where('id', $request->client)->whereIn('agency_id', Auth::user()->brokers->pluck('agency_id'))->first();
+        }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        if (!$client) {
+            abort(403, 'Acesso não autorizado');
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        if ($client->update(['step_id' => $request->step])) {
+            return response()->json(['message' => 'success']);
+        }
     }
 }
