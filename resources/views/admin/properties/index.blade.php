@@ -40,10 +40,10 @@
                         </div>
 
                         @php
-                            $heads = [['label' => 'ID', 'width' => 10], ['label' => 'Capa', 'no-export' => true], 'Título', 'Categoria', 'Tipo', 'Experiência', 'Visualizações', ['label' => 'Ações', 'no-export' => true, 'width' => 15]];
+                            $heads = [['label' => 'ID', 'width' => 10], ['label' => 'Capa', 'no-export' => true], 'Título', 'Proprietário', 'Categoria', 'Tipo', 'Experiência', 'Visualizações', ['label' => 'Ações', 'no-export' => true, 'width' => 15]];
                             $config = [
                                 'ajax' => url('/admin/properties'),
-                                'columns' => [['data' => 'id', 'name' => 'id'], ['data' => 'cover', 'name' => 'cover', 'searchable' => false], ['data' => 'title', 'name' => 'title'], ['data' => 'category', 'name' => 'category'], ['data' => 'type', 'name' => 'type'], ['data' => 'experience', 'name' => 'experience'], ['data' => 'views', 'name' => 'views'], ['data' => 'action', 'name' => 'action', 'orderable' => false, 'searchable' => false]],
+                                'columns' => [['data' => 'id', 'name' => 'id'], ['data' => 'cover', 'name' => 'cover', 'searchable' => false], ['data' => 'title', 'name' => 'title'], ['data' => 'owner', 'name' => 'owner'], ['data' => 'category', 'name' => 'category'], ['data' => 'type', 'name' => 'type'], ['data' => 'experience', 'name' => 'experience'], ['data' => 'views', 'name' => 'views'], ['data' => 'action', 'name' => 'action', 'orderable' => false, 'searchable' => false]],
                                 'language' => ['url' => asset('vendor/datatables/js/pt-BR.json')],
                                 'autoFill' => true,
                                 'processing' => true,

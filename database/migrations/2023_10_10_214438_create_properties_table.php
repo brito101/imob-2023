@@ -70,7 +70,7 @@ return new class extends Migration
             $table->boolean('steam_room')->nullable();
             $table->boolean('view_of_the_sea')->nullable();
 
-            $table->boolean('status')->nullable();
+            $table->string('status')->nullable();
 
             $table->string('video')->nullable();
 
@@ -78,6 +78,11 @@ return new class extends Migration
 
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('agency_id')->constrained()->onDelete('cascade');
+            $table->foreignId('client_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade');
+            $table->string('owner')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
@@ -85,7 +90,7 @@ return new class extends Migration
 
         DB::statement("
         CREATE OR REPLACE VIEW `properties_view` AS
-        SELECT p.id, p.title, p.cover, p.type, p.category, p.experience, p.views
+        SELECT p.id, p.title, p.cover, p.type, p.category, p.experience, p.owner, p.views
         FROM properties as p
         WHERE p.deleted_at IS NULL
         ");

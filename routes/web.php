@@ -50,10 +50,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('clients-funnel', ClientFunnelController::class);
 
         /** Properties */
-        Route::resource('properties', PropertyController::class);
+        Route::resource('properties', PropertyController::class)->except('show');
 
         /** Steps */
-        Route::resource('steps', StepController::class);
+        Route::resource('steps', StepController::class)->except('show');
 
         /**
          * ACL

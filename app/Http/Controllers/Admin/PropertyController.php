@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\CheckPermission;
 use App\Http\Controllers\Controller;
+use App\Models\Agency;
 use App\Models\Property;
 use App\Models\Views\Property as ViewsProperty;
 use Illuminate\Http\Request;
 use DataTables;
+use Illuminate\Support\Facades\Auth;
 
 class PropertyController extends Controller
 {
@@ -46,7 +48,15 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        //
+        CheckPermission::checkAuth('Criar Propriedades');
+
+        if (Auth::user()->hasRole('Programador|Administrador')) {
+            $agencies = Agency::all();
+        } else {
+            $agencies = Agency::whereIn('id', Auth::user()->brokers->pluck('agency_id'))->get();
+        }
+
+        return view('admin.properties.create', compact('agencies'));
     }
 
     /**
@@ -54,7 +64,7 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        CheckPermission::checkAuth('Criar Propriedades');
     }
 
     /**
@@ -62,7 +72,6 @@ class PropertyController extends Controller
      */
     public function show(string $id)
     {
-        //
     }
 
     /**
@@ -70,7 +79,7 @@ class PropertyController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        CheckPermission::checkAuth('Editar Propriedades');
     }
 
     /**
@@ -78,7 +87,7 @@ class PropertyController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        CheckPermission::checkAuth('Editar Propriedades');
     }
 
     /**
@@ -86,6 +95,6 @@ class PropertyController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        CheckPermission::checkAuth('Excluir Propriedades');
     }
 }

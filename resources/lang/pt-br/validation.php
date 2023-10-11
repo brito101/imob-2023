@@ -264,6 +264,8 @@ return [
         'status_sale' => 'situação do processo',
         'reason_refusal' => 'motivo da recusa',
         'client' => 'cliente',
+        'client_id' => 'cliente',
+        'owner' => 'proprietário',
     ],
 
 ];
